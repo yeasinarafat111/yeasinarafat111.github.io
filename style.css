@@ -198,80 +198,163 @@ body {
     text-decoration: underline;
 }
 
-/* Competitive Programming Section */
+/* Premium Competitive Programming Section */
 .dsa-section {
-    padding: 4rem 0 6rem 0;
+    padding: 6rem 0;
+    border-top: 1px solid rgba(51, 65, 85, 0.3);
+}
+
+.section-header {
+    margin-bottom: 3.5rem;
+}
+
+.section-badge {
+    font-family: var(--font-mono);
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.5rem;
 }
 
 .section-desc {
     color: var(--text-muted);
-    margin-bottom: 2.5rem;
+    max-width: 650px;
     font-size: 1.05rem;
+    margin-top: 0.5rem;
 }
 
-.dsa-grid {
+/* Dashboard Grid Layout */
+.dsa-dashboard {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
 }
 
-.dsa-card {
-    background: var(--bg-card);
+/* Base Panel Styles */
+.dsa-panel {
+    background: linear-gradient(145deg, #1e293b, #0f172a);
     border: 1px solid var(--border);
+    border-radius: 16px;
     padding: 2rem;
-    border-radius: 12px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 220px;
     text-decoration: none;
     color: var(--text-main);
-    display: block;
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
 }
 
-.dsa-card:not(.static-card):hover {
-    transform: translateY(-4px);
-    border-color: var(--accent);
+/* Brand Distinct Accent Glows on Hover */
+.leetcode-panel:hover {
+    border-color: #ffa116;
+    box-shadow: 0 10px 30px -10px rgba(255, 161, 22, 0.15);
+}
+.codeforces-panel:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.15);
+}
+.beecrowd-panel:hover {
+    border-color: #10b981;
+    box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.15);
 }
 
-.dsa-card h3 {
-    font-size: 1.2rem;
-    color: var(--text-muted);
-    font-weight: 600;
-    margin-bottom: 1rem;
+.dsa-panel:hover {
+    transform: translateY(-6px);
 }
 
-.dsa-card .stat {
+/* Panel Elements */
+.panel-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.platform-logo {
     font-family: var(--font-mono);
-    font-size: 2.5rem;
     font-weight: 700;
-    color: var(--text-main);
+    font-size: 0.85rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Assigning specific color themes to headers */
+.leetcode-panel .platform-logo { color: #ffa116; background: rgba(255, 161, 22, 0.05); border-color: rgba(255, 161, 22, 0.1); }
+.codeforces-panel .platform-logo { color: #3b82f6; background: rgba(59, 130, 246, 0.05); border-color: rgba(59, 130, 246, 0.1); }
+.beecrowd-panel .platform-logo { color: #10b981; background: rgba(16, 185, 129, 0.05); border-color: rgba(16, 185, 129, 0.1); }
+
+.platform-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: -0.01em;
+}
+
+.panel-body {
+    margin: 1.5rem 0;
+}
+
+.stat-counter {
+    font-family: var(--font-mono);
+    font-size: 3rem;
+    font-weight: 700;
     line-height: 1;
-    margin-bottom: 0.25rem;
+    letter-spacing: -0.03em;
 }
 
-.dsa-card p {
-    font-size: 0.9rem;
+.leetcode-panel .stat-counter { color: #f8fafc; }
+
+.stat-label {
+    font-size: 0.85rem;
     color: var(--text-muted);
-    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.25rem;
 }
 
-.profile-link-text {
+.panel-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(51, 65, 85, 0.4);
+    padding-top: 1rem;
+    font-size: 0.85rem;
+}
+
+.user-handle {
     font-family: var(--font-mono);
-    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.arrow-icon {
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.leetcode-panel:hover .arrow-icon { color: #ffa116; }
+.codeforces-panel:hover .arrow-icon { color: #3b82f6; }
+
+.status-indicator {
     color: var(--accent);
-    background: var(--accent-dim);
-    padding: 0.3rem 0.6rem;
-    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
 }
 
-.profile-user-tag {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    border: 1px solid var(--border);
-    padding: 0.3rem 0.6rem;
-    border-radius: 4px;
+.status-indicator::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--accent);
 }
-
 /* Footer / Contact */
 .footer {
     background: #0b111e;
